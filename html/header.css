@@ -1,0 +1,254 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 1150px;
+  height: 100px;
+  padding: 0px 95px;
+}
+
+.companylogo {
+  width: 45%;
+  padding: 26px 0px 0px 0px;
+  width: 525px;
+}
+
+.container {
+  width: 50%;
+  display: -ms-grid;
+  display: grid;
+  margin-left: 40px;
+}
+
+.socialmedia {
+  height: 38px;
+  border-bottom: 1px solid #51515161;
+  width: 485px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-left: 100px;
+}
+
+.header_flag1 {
+  color: #515151;
+  font-family: sans-serif;
+  font-size: 14px;
+  margin-left: 29px;
+  width: 75px;
+  letter-spacing: 1px;
+}
+
+.header_flag2 {
+  color: #515151;
+  font-family: sans-serif;
+  font-size: 14px;
+  margin-left: 12px;
+  margin-right: 20px;
+  letter-spacing: 1px;
+}
+
+.header_images {
+  width: 25px;
+  height: 25px;
+  white-space: 5px;
+  margin-left: 15px;
+}
+
+.header_images:hover {
+  cursor: pointer;
+}
+
+.header_request {
+  height: 38px;
+  background-color: red;
+  width: 95px;
+  margin-left: 30px;
+  -webkit-transition: height 1s;
+  transition: height 1s;
+  -webkit-box-shadow: 1px 2px #424141;
+          box-shadow: 1px 2px #424141;
+}
+
+.request {
+  padding-top: 12px;
+  color: white;
+  font-size: 12px;
+  font-family: Merriweather;
+  padding-left: 13px;
+}
+
+.header_request:hover {
+  height: 48px;
+}
+
+.companyproperties {
+  width: 95%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  margin-left: 58px;
+  margin-top: 10px;
+  letter-spacing: 1px;
+  font-style: italic;
+  letter-spacing: 1px;
+  color: #292929;
+  float: left;
+  text-transform: none;
+  font-size: larger;
+}
+
+.dropbtn {
+  background-color: white;
+  color: #292929;
+  letter-spacing: 1px;
+  padding: 16px;
+  padding-top: 5px;
+  height: 50px;
+  font-style: italic;
+  font-weight: 550;
+  font-size: 16px;
+  font-family: Merriweather;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  border-top: 3px solid red;
+  background-color: #424141;
+  min-width: 160px;
+  -webkit-box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: #9e9d9d;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-family: Merriweather;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.dropdown-content a:hover {
+  background-color: #4c4c4c;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: white;
+}
+
+.submenu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.submenu_content {
+  list-style: none;
+  background-color: #292929;
+}
+
+.submenu:hover .submenu_content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #292929;
+}
+
+.body_image {
+  border-top: 3px solid grey;
+  -webkit-transition-duration: 4s;
+          transition-duration: 4s;
+}
+
+.sticky {
+  position: fixed;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 7px 0px 0px 135px;
+  width: 40%;
+  height: 43px;
+  top: 0px;
+  background-color: white;
+  margin: 0px;
+}
+
+.logosticky {
+  position: fixed;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  top: 0px;
+  width: 100%;
+  background-color: white;
+  margin: 0px;
+  height: 50px;
+}
+
+.req {
+  height: 38px;
+  background-color: red;
+  width: 95px;
+  margin-left: 30px;
+  -webkit-transition: height 1s;
+  transition: height 1s;
+  -webkit-box-shadow: 1px 2px #424141;
+          box-shadow: 1px 2px #424141;
+}
+
+.dropdown-content:hover .web {
+  position: relative;
+  float: right;
+  display: block;
+  background-color: grey;
+}
+
+ul {
+  list-style: none;
+  height: auto;
+}
+
+ul li {
+  background-color: #424141;
+  width: 157px;
+  height: 56px;
+}
+
+.dropdown ul li:hover ul {
+  display: block;
+  margin-left: 161px;
+  top: 0px;
+}
+
+.dropdown ul ul {
+  margin-left: 161px;
+  top: 0px;
+  display: none;
+}
+/*# sourceMappingURL=header.css.map */

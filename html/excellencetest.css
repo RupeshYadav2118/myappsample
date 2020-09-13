@@ -1,0 +1,10 @@
+
+.roundedborder{
+    border-color:grey ;
+    border-radius: 10px;
+    padding: 5px;
+    width: 180px;
+    text-align: center;
+    border: groove;
+
+}

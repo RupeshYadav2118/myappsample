@@ -1,0 +1,300 @@
+    -> DESCRIBE cart
+    -> DESCRIBE cart;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that
+corresponds to your MySQL server version for the right syntax to use near 'e
+DESCRIBE cart
+DESCRIBE cart' at line 1
+mysql> DESCRIBE cart;
++---------------+-------------+------+-----+---------+-------+
+| Field         | Type        | Null | Key | Default | Extra |
++---------------+-------------+------+-----+---------+-------+
+| product_name  | varchar(40) | YES  |     | NULL    |       |
+| image         | varchar(50) | YES  |     | NULL    |       |
+| quantity      | int(11)     | YES  |     | NULL    |       |
+| price         | int(11)     | YES  |     | NULL    |       |
+| delivary_date | date        | YES  |     | NULL    |       |
++---------------+-------------+------+-----+---------+-------+
+5 rows in set (0.08 sec)
+
+mysql> DESCRIBE product;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| category | varchar(50) | YES  |     | NULL    |       |
+| image    | varchar(40) | YES  |     | NULL    |       |
+| name     | varchar(20) | NO   | PRI | NULL    |       |
+| price    | int(11)     | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> INSERT INTO user (name,phone_no,email,age,image) VALUES ('harch',813001,'
+rupeshkyadav@gmail.com',21,'goodimage');
+Query OK, 1 row affected (0.08 sec)
+
+mysql> ALTER TABLE product ADD CONSTRAINT FK_phone FOREIGN KEY (phone) REFERENCE
+S user (phone);
+ERROR 1072 (42000): Key column 'phone' doesn't exist in table
+mysql> ALTER TABLE product ADD FOREIGN KEY (FK_phone) REFERENCES user (phone);CE
+S user (phone);
+ERROR 1072 (42000): Key column 'FK_phone' doesn't exist in table
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that
+corresponds to your MySQL server version for the right syntax to use near 'CES u
+ser (phone)' at line 1
+mysql> ALTER TABLE product ADD FOREIGN KEY(FK_phone_no) REFERENCES user (phone_n
+o);
+ERROR 1072 (42000): Key column 'FK_phone_no' doesn't exist in table
+mysql> ALTER TABLE product ADD FOREIGN KEY(FK_phone_no) REFERENCES user (phone_n
+o);ALTER TABLE user ADD PRIMARY KEY(phone_no);
+ERROR 1072 (42000): Key column 'FK_phone_no' doesn't exist in table
+ERROR 1062 (23000): Duplicate entry '813001' for key 'PRIMARY'
+mysql> c
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that
+corresponds to your MySQL server version for the right syntax to use near 'c' at
+ line 1
+mysql> DESCRIBE user;DROP DATABASE flipkart;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| name     | varchar(20) | YES  |     | NULL    |       |
+| phone_no | int(11)     | YES  |     | NULL    |       |
+| email    | varchar(40) | YES  |     | NULL    |       |
+| age      | int(11)     | YES  |     | NULL    |       |
+| image    | varchar(50) | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+5 rows in set (0.23 sec)
+
+Query OK, 4 rows affected (1.33 sec)
+
+mysql> CREATE DATABASE flipkart;
+Query OK, 1 row affected (0.04 sec)
+
+mysql> use flipkart
+Database changed
+mysql> SHOW DATABASE;l
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that
+corresponds to your MySQL server version for the right syntax to use near 'DATAB
+ASE' at line 1
+    -> SHOW DATABASE;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that
+corresponds to your MySQL server version for the right syntax to use near 'l
+SHOW DATABASE' at line 1
+mysql> use flipkart
+Database changed
+mysql> CREATE TABLE user (name varchar(20),phone_no int,email varchar(40),age in
+t,image varchar(50),PRIMARY KEY(phone_no));
+Query OK, 0 rows affected (0.20 sec)
+
+mysql> SHOW TABLES;
++--------------------+
+| Tables_in_flipkart |
++--------------------+
+| user               |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> CREATE TABLE address (flat_no int,street varchar(50),area varchar(50),cit
+y varchar(50),state varchar(50),PRIMARY KEY(flat_no));
+Query OK, 0 rows affected (0.08 sec)
+
+mysql> CREATE TABLE product(category varchar(50),image varchar(40),name varchar(
+20),price int,PRIMARY KEY (name));
+Query OK, 0 rows affected (0.10 sec)
+
+mysql> CREATE TABLE cart(product_name varchar(40),image varchar(50),quantity int
+,price int,delivary_date date,PRIMARY KEY(product_name));
+Query OK, 0 rows affected (0.09 sec)
+
+mysql> SHOW TABLES;
++--------------------+
+| Tables_in_flipkart |
++--------------------+
+| address            |
+| cart               |
+| product            |
+| user               |
++--------------------+
+4 rows in set (0.00 sec)
+
+mysql> INSERT INTO user (name,phone_no,email,age,image) VALUES ('harch',813001,'
+rupeshkyadav@gmail.com',21,'goodimage');
+Query OK, 1 row affected (0.07 sec)
+
+mysql> INSERT INTO user (name,phone_no,email,age,image) VALUES ('RUPESH',813001,
+'rupeshkyadav@gmail.com',21,'goodimage');
+ERROR 1062 (23000): Duplicate entry '813001' for key 'PRIMARY'
+mysql> INSERT INTO user (name,phone_no,email,age,image) VALUES ('RUPESH',865001,
+'rupeshkyadav@gmail.com',21,'goodimage');
+Query OK, 1 row affected (0.04 sec)
+
+mysql> DESCRIBE user;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| name     | varchar(20) | YES  |     | NULL    |       |
+| phone_no | int(11)     | NO   | PRI | NULL    |       |
+| email    | varchar(40) | YES  |     | NULL    |       |
+| age      | int(11)     | YES  |     | NULL    |       |
+| image    | varchar(50) | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+5 rows in set (0.01 sec)
+
+mysql> SELECT * FROM user;
++--------+----------+------------------------+------+-----------+
+| name   | phone_no | email                  | age  | image     |
++--------+----------+------------------------+------+-----------+
+| harch  |   813001 | rupeshkyadav@gmail.com |   21 | goodimage |
+| RUPESH |   865001 | rupeshkyadav@gmail.com |   21 | goodimage |
++--------+----------+------------------------+------+-----------+
+2 rows in set (0.03 sec)
+
+mysql> ALTER TABLE product ADD FOREIGN KEY (phone_no) REFERNCES user(phone_no);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that
+corresponds to your MySQL server version for the right syntax to use near 'REFER
+NCES user(phone_no)' at line 1
+mysql> ALTER TABLE product ADD FOREIGN KEY (phone_no) REFERENCES user(phone_no);
+
+ERROR 1072 (42000): Key column 'phone_no' doesn't exist in table
+mysql> CREATE TABLE buys(product_type varchar(40);product_name varchar(40),price
+ int);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that
+corresponds to your MySQL server version for the right syntax to use near '' at
+line 1
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that
+corresponds to your MySQL server version for the right syntax to use near 'produ
+ct_name varchar(40),price int)' at line 1
+mysql> CREATE TABLE buys(product_type varchar(40),product_name varchar(40),price
+ int);
+Query OK, 0 rows affected (0.11 sec)
+
+mysql> INSERT INTO user (name,phone_no,email,age,image) VALUES ('RUPESH',8135601
+,'rupeshkyadav@gmail.com',21,'goodimage');
+Query OK, 1 row affected (0.07 sec)
+
+mysql> INSERT INTO user (name,phone_no,email,age,image) VALUES ('RUPESH',8136601
+,'rupeshkyadav@gmail.com',21,'goodimage');
+Query OK, 1 row affected (0.13 sec)
+
+mysql> SELECT * FROM user;
++--------+----------+------------------------+------+-----------+
+| name   | phone_no | email                  | age  | image     |
++--------+----------+------------------------+------+-----------+
+| harch  |   813001 | rupeshkyadav@gmail.com |   21 | goodimage |
+| RUPESH |   865001 | rupeshkyadav@gmail.com |   21 | goodimage |
+| RUPESH |  8135601 | rupeshkyadav@gmail.com |   21 | goodimage |
+| RUPESH |  8136601 | rupeshkyadav@gmail.com |   21 | goodimage |
++--------+----------+------------------------+------+-----------+
+4 rows in set (0.00 sec)
+
+mysql> ALTER TABLE product ADD FOREIGN KEY (phone_no) REFERENCES user(phone_no);
+
+ERROR 1072 (42000): Key column 'phone_no' doesn't exist in table
+mysql> ALTER TABLE product ADD FOREIGN KEY (image) REFERENCES user(phone_no);
+ERROR 1215 (HY000): Cannot add foreign key constraint
+mysql> ALTER TABLE product ADD FOREIGN KEY (price) REFERENCES user(phone_no);
+Query OK, 0 rows affected (0.35 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> SHOW DATABASE;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that
+corresponds to your MySQL server version for the right syntax to use near 'DATAB
+ASE' at line 1
+mysql> show database;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that
+corresponds to your MySQL server version for the right syntax to use near 'datab
+ase' at line 1
+mysql> show database flipkart;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that
+corresponds to your MySQL server version for the right syntax to use near 'datab
+ase flipkart' at line 1
+mysql> SHOW TABLES;
++--------------------+
+| Tables_in_flipkart |
++--------------------+
+| address            |
+| buys               |
+| cart               |
+| product            |
+| user               |
++--------------------+
+5 rows in set (0.06 sec)
+
+mysql> SELECT * FROM user;
++--------+----------+------------------------+------+-----------+
+| name   | phone_no | email                  | age  | image     |
++--------+----------+------------------------+------+-----------+
+| harch  |   813001 | rupeshkyadav@gmail.com |   21 | goodimage |
+| RUPESH |   865001 | rupeshkyadav@gmail.com |   21 | goodimage |
+| RUPESH |  8135601 | rupeshkyadav@gmail.com |   21 | goodimage |
+| RUPESH |  8136601 | rupeshkyadav@gmail.com |   21 | goodimage |
++--------+----------+------------------------+------+-----------+
+4 rows in set (0.00 sec)
+
+mysql> show databaase
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that
+corresponds to your MySQL server version for the right syntax to use near 'datab
+aase' at line 1
+mysql> SELECT name FROM user;
++--------+
+| name   |
++--------+
+| harch  |
+| RUPESH |
+| RUPESH |
+| RUPESH |
++--------+
+4 rows in set (0.13 sec)
+
+mysql> DESCRIBE TABLE product;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that
+corresponds to your MySQL server version for the right syntax to use near 'TABLE
+ product' at line 1
+mysql> DESC product;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| category | varchar(50) | YES  |     | NULL    |       |
+| image    | varchar(40) | YES  |     | NULL    |       |
+| name     | varchar(20) | NO   | PRI | NULL    |       |
+| price    | int(11)     | YES  | MUL | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+4 rows in set (0.09 sec)
+
+mysql> DESC cart;
++---------------+-------------+------+-----+---------+-------+
+| Field         | Type        | Null | Key | Default | Extra |
++---------------+-------------+------+-----+---------+-------+
+| product_name  | varchar(40) | NO   | PRI | NULL    |       |
+| image         | varchar(50) | YES  |     | NULL    |       |
+| quantity      | int(11)     | YES  |     | NULL    |       |
+| price         | int(11)     | YES  |     | NULL    |       |
+| delivary_date | date        | YES  |     | NULL    |       |
++---------------+-------------+------+-----+---------+-------+
+5 rows in set (0.07 sec)
+
+mysql> show tables;
++--------------------+
+| Tables_in_flipkart |
++--------------------+
+| address            |
+| buys               |
+| cart               |
+| product            |
+| user               |
++--------------------+
+5 rows in set (0.00 sec)
+
+mysql> desc cart;
++---------------+-------------+------+-----+---------+-------+
+| Field         | Type        | Null | Key | Default | Extra |
++---------------+-------------+------+-----+---------+-------+
+| product_name  | varchar(40) | NO   | PRI | NULL    |       |
+| image         | varchar(50) | YES  |     | NULL    |       |
+| quantity      | int(11)     | YES  |     | NULL    |       |
+| price         | int(11)     | YES  |     | NULL    |       |
+| delivary_date | date        | YES  |     | NULL    |       |
++---------------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql>
